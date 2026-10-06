@@ -274,13 +274,8 @@
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="4"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-8 9"/></svg>
           Escolher foto do aparelho
         </button>
-        <button class="secondary" id="btnCamera" type="button">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8.5A2.5 2.5 0 0 1 6.5 6H8l1.5-2h5L16 6h1.5A2.5 2.5 0 0 1 20 8.5v8a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 16.5z"/><circle cx="12" cy="12.5" r="3.5"/></svg>
-          Tirar uma foto agora
-        </button>
       </div>
       <input type="file" id="fileGallery" accept="image/*">
-      <input type="file" id="fileCamera" accept="image/*" capture="user">
       <p class="error" id="err1" role="alert">Não conseguimos abrir essa foto. Tente escolher outra.</p>
 
       <p class="privacy">
@@ -662,8 +657,7 @@
   }
 
   $('btnGallery').onclick = function () { $('fileGallery').click(); };
-  $('btnCamera').onclick = function () { $('fileCamera').click(); };
-  ['fileGallery', 'fileCamera'].forEach(function (id) {
+  ['fileGallery'].forEach(function (id) {
     $(id).addEventListener('change', function (e) {
       loadFile(e.target.files && e.target.files[0]);
       e.target.value = '';
